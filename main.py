@@ -4,6 +4,7 @@ from ui import Ui_MainWindow
 from random import randint
 import sys
 
+
 class YellowCircles(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -14,6 +15,7 @@ class YellowCircles(QMainWindow, Ui_MainWindow):
     def paint(self):
         self.do_paint = True
         self.repaint()
+        self.do_paint = False
 
     def paintEvent(self, event):
         if self.do_paint:
@@ -26,7 +28,6 @@ class YellowCircles(QMainWindow, Ui_MainWindow):
         qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
         thickness = randint(1, 200)
         qp.drawEllipse(randint(1, 400), randint(1, 400), thickness, thickness)
-
 
 
 if __name__ == '__main__':
